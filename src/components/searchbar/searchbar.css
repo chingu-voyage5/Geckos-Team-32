@@ -6,14 +6,16 @@
 
 #searchBar {
   margin: 50px auto;
-  width: 50%;
+  width: 51%;
 }
 
 input[type='search'] {
   width: 100%;
-  padding: 11px 90px 11px 40px;
+  padding: 15px 90px 15px 40px;
   font-size: 16px;
-  background: url('./icon-search.png') no-repeat 7px center;
+  background: url(/static/media/icon-search.d4a92b8f.png) white;
+  background-repeat: no-repeat;
+  background-position: 7px center;
   background-size: 22px;
   outline: none;
   border: 1px solid var(--light-grey);
@@ -23,9 +25,9 @@ input[type='submit'] {
   background: var(--blue);
   border: none;
   color: var(--white);
-  padding: 8px 15px;
-  font-size: 16px;
-  margin-left: -85px;
+  padding: 10px 13px;
+  font-size: 14px;
+  margin-left: -80px;
   cursor: pointer;
   transition: all .2s;
 }
