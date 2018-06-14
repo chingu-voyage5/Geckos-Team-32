@@ -1,0 +1,16 @@
+.credit {
+    color: white;
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: left;
+    padding:10px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
