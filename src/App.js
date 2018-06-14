@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import SearchBar from './components/searchbar'
 import Photos from './components/background/index';
-
-console.log(process.env.REACT_APP_UNSPLASH_KEY);
 
 class App extends Component {
   render() {
@@ -12,9 +11,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          Hello Codecademy!
-        </p>
+        <SearchBar />
       </div>
     );
   }
