@@ -1,0 +1,256 @@
+* {
+  box-sizing: border-box;
+}
+
+.useful-links {
+  width: 100%;
+  height: 75vh;
+  background: white;
+  position: absolute;
+  top: -75vh;
+  left: 0;
+  box-shadow: none;
+  overflow: auto;
+  transition: all .5s ease-in-out;
+}
+
+.useful-links.activeLink {
+  top: 0;
+  box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+/* Scrollbar style when links overflow */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #fff; 
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #aaa; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.useful-links__heading {
+  text-align: left;
+  margin: 0;
+  padding: 20px 10px 10px;
+  text-transform: uppercase;
+  font-weight: 100;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+}
+
+/* container for all links */
+.links-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 270px));
+  grid-gap: 20px;
+  justify-content: start;
+  padding-bottom: 10px; 
+}
+/* link block*/
+.link {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* wrapper for link's title and image */
+.link-wrapper {
+  width: 100%;
+  height: 190px;
+  background: #d2d2d2;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  
+  position: relative;
+}
+
+.link-wrapper:hover {
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.5);;
+}
+
+.link-image {
+  background: #eee;
+  height: 160px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.link-title {
+  background:#eee;
+  color: #444;
+  height: 30px;
+  line-height: 2;
+  font-size: 15px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.link-preview {
+  width: 100%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.loader {
+  border: 5px solid transparent;
+  border-radius: 50%;
+  border-top: 5px solid #3498db;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  margin: 50px auto 0;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.link-noImage {
+  margin: 30px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.link-noImage > .far {
+  font-size: 4rem;
+}
+
+.link-noImage > p {
+  margin: 0;
+}
+
+.btn-delete,
+.btn-edit {
+  position: absolute;
+  background: #fff;
+  width: 30px;
+  height: 30px;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  top: -7px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  z-index: 10;
+  transform: scale(0);
+  opacity: 0;
+  transition: all .3s;
+}
+.btn-edit {left: -7px;}
+.btn-delete {right: -7px;}
+
+.link:hover .btn-delete,
+.link:hover .btn-edit {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {box-shadow: 0 1px 5px rgba(0, 0, 0, .75);}
+.btn-edit:active,
+.btn-delete:active {box-shadow: inset 0 0px 1px rgba(0, 0, 0, .75);}
+
+/* Add new link block */
+.new-link,
+.update-link {
+  width: 100%;
+  height: 190px;
+  background: #eee;
+  border-radius: 3px;
+}
+  .new-link-btn {
+    width: 100%;
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    background-image: url("./plus.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 25%;
+    opacity: .25;
+    outline: none;
+    transition: .3s;
+  }
+  .new-link:hover .new-link-btn {
+    opacity: .5;
+  }
+
+
+/* Style add new link form */
+
+.link-form,
+.link-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  font-size: 14px;
+  color: #444;
+}
+
+.link-form input {
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  margin: 5px 0 10px;
+  outline: none;
+  transition: all .3s;
+}
+
+.link-form input:hover, 
+.link-form input:focus {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+} 
+
+.btns {
+  align-self: flex-end;
+}
+
+.btns > * {
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  padding: 6px 12px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.btn-cancel {
+  background: #fff;
+  margin-right: 10px;
+  color: currentColor;
+}
+
+.btn-add {
+  background: #41a56f;
+  color: #eee;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btn-update {
+  background: #fb8103;
+  color: #fff;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
