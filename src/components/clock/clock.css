@@ -1,13 +1,18 @@
-.App-clock{
-    font-size: 3em;
+#App-clock{
+    user-select: none;
     color: white;
-    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#App-time {
+    font-size: 3em;
     margin-bottom: 0em;
 }
 
-.App-date{
+#App-date{
     font-size: 1em;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.7);
     margin-top: 0em;
+}
+
+#timeOfDay {
+    font-size: 2em;
 }
