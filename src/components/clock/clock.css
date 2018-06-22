@@ -1,6 +1,7 @@
 #App-clock{
     user-select: none;
     color: white;
+    align-self: end;
 }
 
 #App-time {
