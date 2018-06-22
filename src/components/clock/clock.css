@@ -4,13 +4,13 @@
 }
 
 #App-time {
-    font-size: 3em;
-    margin-bottom: 0em;
+    font-size: 100px;
+    font-weight: 300;   
 }
 
 #App-date{
     font-size: 1em;
-    margin-top: 0em;
+    margin-top: 0;
 }
 
 #timeOfDay {
