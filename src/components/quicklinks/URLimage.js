@@ -34,7 +34,7 @@ class URLimage extends React.Component {
     if (this.state.requestFailed)
       return (
         <div className="link-noImage">
-          <i class="far fa-image" />
+          <i className="far fa-image" />
           <p>No image</p>
         </div>
       );

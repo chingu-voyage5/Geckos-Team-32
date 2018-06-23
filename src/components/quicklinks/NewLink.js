@@ -35,7 +35,8 @@ class NewLink extends React.Component {
             <input
               type="url"
               id="input-url"
-              placeholder="https://..."
+              placeholder="http://..."
+              defaultValue="http://"
               required
               ref={this.urlRef}
             />
