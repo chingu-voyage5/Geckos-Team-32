@@ -26,7 +26,7 @@ class App extends Component {
         <Clock />
         <SearchBar />
         <Navbar
-          changeLinkState={this.changeLinkState} //
+          changeLinkState={this.changeLinkState}
           isDealingWithLinks={this.state.isDealingWithLinks}
         />
       </div>
