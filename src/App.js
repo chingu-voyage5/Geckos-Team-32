@@ -8,13 +8,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Photos />
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          Hello Codecademy!
-        </p>
+        <div className="greyOverlay">
+          <Photos />
+          <header className="App-header">
+            <h1 className="App-title">Welcome to React</h1>
+          </header>
+          <p className="App-intro">
+            Hello Codecademy!
+          </p>
+        </div>
       </div>
     );
   }
