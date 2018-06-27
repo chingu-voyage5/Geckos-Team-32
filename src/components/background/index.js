@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Unsplash,  { toJson }  from 'unsplash-js';
 import $ from 'jquery';
+import FontAwesome from 'react-fontawesome';
 
 import './index.css';
 import image1 from './images/image1.jpg';
@@ -25,6 +26,8 @@ class Photos extends Component {
             name: '',
             url: ''
          };
+        this.cameraHoverIn = this.cameraHoverIn.bind(this);
+        this.cameraHoverOut = this.cameraHoverOut.bind(this);
      };
 
     componentDidMount(){
@@ -47,15 +50,31 @@ class Photos extends Component {
             }
             $('body').css('background-size', 'cover');
         });   
+
+        $('.camera').hover(this.cameraHoverIn, this.cameraHoverOut);
+    };
+
+    cameraHoverIn(){
+        $('.credit').css('display', 'inline');
+    };
+
+    cameraHoverOut(){
+        $('.credit').css('display', 'none');
+
     };
 
     render(){
         return (
-            <div className="credit">
-             <a href={this.state.url}>
-                <p> {this.state.name} </p>
-                <p>{this.state.author} / Unsplash </p>
-            </a>
+            <div>
+                <div className="credit">
+                <a href={this.state.url}>
+                    <p> {this.state.name} </p>
+                    <p>{this.state.author} / Unsplash </p>
+                </a>
+                </div>
+                <div className="camera">
+                    <FontAwesome name='camera' size='2x'/>
+                </div>
             </div>
 
         );
