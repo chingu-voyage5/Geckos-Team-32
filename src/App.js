@@ -18,17 +18,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* conditional rendering: render if state.isDealingWithLinks = true  */}
-        {this.state.isDealingWithLinks ? (
-          <Links changeLinkState={this.changeLinkState} />
-        ) : null}
-        <Photos />
-        <Clock />
-        <SearchBar />
-        <Navbar
-          changeLinkState={this.changeLinkState}
-          isDealingWithLinks={this.state.isDealingWithLinks}
-        />
+        <div className="greyOverlay">
+          {/* conditional rendering: render if state.isDealingWithLinks = true  */}
+          {this.state.isDealingWithLinks ? (
+            <Links changeLinkState={this.changeLinkState} />
+          ) : null}
+          <Photos />
+          <Clock />
+          <SearchBar />
+          <Navbar
+            changeLinkState={this.changeLinkState}
+            isDealingWithLinks={this.state.isDealingWithLinks}
+          />
+        </div>
       </div>
     );
   }
