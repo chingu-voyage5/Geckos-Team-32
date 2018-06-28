@@ -1,13 +1,13 @@
-import React from 'react';
-import './searchbar.css';
+import React from "react";
+import "./searchbar.css";
 
 const SearchBar = () => {
   return (
     <form id="searchBar" action="https://www.google.com/search" method="get">
-      <input type="search" name="q" />
-      <input type="submit" value='Search' />
+      <input type="search" name="q" placeholder="Search..." autoFocus />
+      <input type="submit" value="Search" />
     </form>
-  )
-}
+  );
+};
 
 export default SearchBar;

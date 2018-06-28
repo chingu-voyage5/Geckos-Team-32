@@ -54,47 +54,21 @@ class Links extends React.Component {
     this.setState({ links });
   };
 
-  // Close Link continer if mouse pressed outside it
-  linksContainerRef = React.createRef();
-  handleClick = event => {
-    if (!this.linksContainerRef.current.contains(event.target)) {
-      this.linksContainerRef.current.className = "useful-links";
-    }
-  };
-
-  //TEMPORARELY open if key "l" was pressed
-  openLinks = event => {
-    if (event.keyCode === 108) {
-      this.linksContainerRef.current.className = "useful-links activeLink";
-    }
-  };
-
-  componentWillMount() {
-    document.addEventListener("mousedown", this.handleClick);
-    document.addEventListener("keypress", this.openLinks); //TEMPORARELY
-  }
-
+  // get saved links from localStorage if they are available
   componentDidMount() {
     const localStorageRef = localStorage.getItem("savedLinks");
     if (localStorageRef) {
       this.setState({ links: JSON.parse(localStorageRef) });
     }
   }
-
+  // update localStorage when links component updates
   componentDidUpdate() {
-    localStorage.setItem(
-      "savedLinks",
-      JSON.stringify(this.state.links) // JSON.stingify - convert object to readable object-ish string. Otherwise we'll receive [object Object]
-    );
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClick);
+    localStorage.setItem("savedLinks", JSON.stringify(this.state.links));
   }
 
   render() {
     return (
-      <div className="useful-links activeLink" ref={this.linksContainerRef}>
+      <div className="useful-links">
         <div className="container">
           <h2 className="useful-links__heading">Useful links</h2>
           <div className="links-container">

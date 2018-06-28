@@ -1,18 +1,20 @@
 #App-clock{
     user-select: none;
     color: white;
+    align-self: end;
 }
 
 #App-time {
-    font-size: 3em;
-    margin-bottom: 0em;
+    font-size: 100px;
+    font-weight: 300;   
 }
 
 #App-date{
     font-size: 1em;
-    margin-top: 0em;
+    margin-top: 0;
 }
 
 #timeOfDay {
     font-size: 2em;
+    font-weight: 300;
 }

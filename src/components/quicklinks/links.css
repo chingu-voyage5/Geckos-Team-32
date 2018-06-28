@@ -7,16 +7,36 @@
   height: 75vh;
   background: white;
   position: absolute;
-  top: -75vh;
   left: 0;
-  box-shadow: none;
+  top: -75vh;
   overflow: auto;
-  transition: all .5s ease-in-out;
+  animation: linksAppear .3s linear forwards;
 }
 
-.useful-links.activeLink {
-  top: 0;
-  box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.5);
+.useful-links.removeLinks {
+  animation: linksDisappear .2s linear forwards;
+}
+
+@keyframes linksAppear {
+  0% {
+    box-shadow: none;
+    top: -75vh;
+  }
+  100% {
+    box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.5);
+    top: 0;
+  }
+}
+
+@keyframes linksDisappear {
+  0% {
+    box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.5);
+    top: 0;
+  }
+  100% {
+    box-shadow: none;
+    top: -75vh;
+  }
 }
 
 .container {
@@ -38,6 +58,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
 .useful-links__heading {
   text-align: left;
   margin: 0;
@@ -193,7 +214,6 @@
   .new-link:hover .new-link-btn {
     opacity: .5;
   }
-
 
 /* Style add new link form */
 
