@@ -5,6 +5,7 @@ import SearchBar from "./components/searchbar";
 import Photos from "./components/background/index";
 import Links from "./components/quicklinks";
 import Navbar from "./components/navbar";
+import Translator from './components/translator';
 
 class App extends Component {
   state = {
@@ -26,6 +27,7 @@ class App extends Component {
           <Photos />
           <Clock />
           <SearchBar />
+          <Translator />
           <Navbar
             changeLinkState={this.changeLinkState}
             isDealingWithLinks={this.state.isDealingWithLinks}
