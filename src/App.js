@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Clock from './components/clock';
-import SearchBar from './components/searchbar'
+import SearchBar from './components/searchbar';
 import Photos from './components/background/index';
+import Translator from './components/translator';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         </header>
         <Clock />
         <SearchBar />
+        <Translator />
       </div>
     );
   }
