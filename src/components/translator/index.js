@@ -2,6 +2,15 @@ import React, { Component } from 'react';
 import './translator.css';
 
 const API_KEY = process.env.REACT_APP_YANDEX_TRANSLATE_KEY;
+const API_URL = 'https://translate.yandex.net/api/v1.5/tr.json/';
+
+//construct the full url address for each api method here
+const api_method = {
+    translate: API_URL + 'translate?key=' + API_KEY,
+    detect: API_URL + 'detect?key=' + API_KEY,
+    languages: API_URL + 'getLangs?key=' + API_KEY
+  };
+
 class Translator extends Component {
 
     translate = this.translate.bind(this);
@@ -10,8 +19,8 @@ class Translator extends Component {
     state = {
                 textToTranslate: '', 
                 translated: '',
-                sourceLang:'en',
-                targetLang: 'de',
+                sourceLang:'',  //autodetect language
+                targetLang: 'en',
                 languages: {}
             }
     
@@ -38,28 +47,56 @@ class Translator extends Component {
         return(() => this.props.changeSourceLang())
     }
 
-    translate() {
-        let textToTranslate = encodeURI(this.state.textToTranslate);
-        let sourceLang = this.state.sourceLang;
-        let targetLang = this.state.targetLang;
-
-        let apiCall = 'https://translate.yandex.net/api/v1.5/tr.json/translate?key='
-                        + API_KEY + '&text=' + textToTranslate + '&lang=' + sourceLang + '-' + targetLang;
-
+    detectLang() {
+        let textToTranslate = this.state.textToTranslate;
+        let apiCall = api_method['detect'] + '&text=' + textToTranslate;
         fetch(apiCall)
         .then(res => res.json())
         .then((data) => {
-            this.setState({ translated: data.text[0] })
+            this.setState({ sourceLang: data.lang })
         })
+        .then(() => this.translate())
         .catch(error => {
             console.log("There was an error with the translation request: ", error);
         });
+    }
 
+    translate() {
+        let textToTranslate = this.state.textToTranslate;
+        let sourceLang = this.state.sourceLang;
+        let targetLang = this.state.targetLang;
+
+        //only perform API call for non-empty input text field
+        //if input is empty reset translated and exit the function
+        if (textToTranslate.trim().length === 0) {
+            //if textToTranslate is empty, set translated to empty
+            this.setState( { textToTranslate: '', translated: '' } )
+            return;
+        }
+
+        //if sourceLang is empty -> call detectLang()
+        if (!sourceLang) {
+            this.detectLang();
+        }
+        else {
+            textToTranslate = encodeURI(textToTranslate);
+            let apiCall = api_method['translate']
+                            + '&text=' + textToTranslate + '&lang=' + sourceLang + '-' + targetLang;
+
+            fetch(apiCall)
+            .then(res => res.json())
+            .then((data) => {
+                this.setState({ translated: data.text[0] })
+            })
+            .catch(error => {
+                console.log("There was an error with the translation request: ", error);
+            });
+        }
     }
     
     componentDidMount() {
        // use api call to fetch list of languages
-       fetch('https://translate.yandex.net/api/v1.5/tr.json/getLangs?key=' + API_KEY + '&ui=en')
+       fetch(api_method['languages'] + '&ui=en')
         .then(res => res.json())
         .then(data => this.setState({ languages: data.langs }))
         .catch(error => {
@@ -87,15 +124,16 @@ class Translator extends Component {
                         <div className="lang-panel">
                             <select value={this.state.sourceLang} className="lang-list"
                                 onChange={this.changeSourceLang}>
+                                <option value="">Autodetect language</option>
                                 {langList}
                             </select>  
                             <button id="btn-swap" onClick={this.swapLanguages}>
                             </button>  
                         </div>
-                        <textarea id="textbox1" onChange={this.changeTextToTranslate}>
+                        <textarea id="textbox1" value={this.state.textToTranslate} onChange={this.changeTextToTranslate}>
                         </textarea>
                     </div>
-                    
+
                     <div className="item item-right"> 
                         <div className="lang-panel">
                             <select value={this.state.targetLang} className="lang-list"
