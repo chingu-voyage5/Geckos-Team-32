@@ -33,7 +33,7 @@ nav {
 
 .nav-item.active .nav-item-icon,
 .nav-item:hover .nav-item-icon{
-  filter: grayscale(0) drop-shadow(0px 2px 5px rgb(0,0,0, .8));
+  filter: grayscale(0) drop-shadow(0px 1px 3px rgb(0,0,0, .5));
 }
 
 .nav-item.active,
