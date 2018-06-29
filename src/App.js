@@ -5,7 +5,7 @@ import SearchBar from "./components/searchbar";
 import Photos from "./components/background/index";
 import Links from "./components/quicklinks";
 import Navbar from "./components/navbar";
-import Translator from './components/translator';
+import Translator from "./components/translator";
 
 class App extends Component {
   state = {
@@ -19,20 +19,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="greyOverlay">
-          {/* conditional rendering: render if state.isDealingWithLinks = true  */}
-          {this.state.isDealingWithLinks ? (
-            <Links changeLinkState={this.changeLinkState} />
-          ) : null}
-          <Photos />
-          <Clock />
-          <SearchBar />
-          <Translator />
-          <Navbar
-            changeLinkState={this.changeLinkState}
-            isDealingWithLinks={this.state.isDealingWithLinks}
-          />
-        </div>
+        {/* conditional rendering: render if state.isDealingWithLinks = true  */}
+        {this.state.isDealingWithLinks ? (
+          <Links changeLinkState={this.changeLinkState} />
+        ) : null}
+        <Photos />
+        <Clock />
+        <SearchBar />
+        <Translator />
+        <Navbar
+          changeLinkState={this.changeLinkState}
+          isDealingWithLinks={this.state.isDealingWithLinks}
+        />
       </div>
     );
   }
