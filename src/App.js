@@ -9,12 +9,19 @@ import Translator from "./components/translator";
 
 class App extends Component {
   state = {
-    isDealingWithLinks: false
+    isDealingWithLinks: false,
+    isDealingWithTranslate: false
   };
 
   // Change state of isDealingWithLinks - handle show/hide state of link container
   changeLinkState = () =>
     this.setState({ isDealingWithLinks: !this.state.isDealingWithLinks });
+
+  // Change state of isDealingWithTranslate - handle show/hide state of translator
+  changeTranslateState = () =>
+    this.setState({
+      isDealingWithTranslate: !this.state.isDealingWithTranslate
+    });
 
   render() {
     return (
@@ -25,11 +32,12 @@ class App extends Component {
         ) : null}
         <Photos />
         <Clock />
-        <SearchBar />
-        <Translator />
+        {this.state.isDealingWithTranslate ? <Translator /> : <SearchBar />}
         <Navbar
           changeLinkState={this.changeLinkState}
           isDealingWithLinks={this.state.isDealingWithLinks}
+          changeTranslateState={this.changeTranslateState}
+          isDealingWithTranslate={this.state.isDealingWithTranslate}
         />
       </div>
     );
