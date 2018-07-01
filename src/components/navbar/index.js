@@ -17,9 +17,10 @@ class Navbar extends React.Component {
       this.props.isDealingWithLinks
     ) {
       this.toggleLinkBtnState();
-      // handle click on trnslateBtn
+      // handle click on translateBtn
     }
     if (this.translateBtnRef.current.contains(event.target)) {
+      this.toggleTranslateBtnState();
       console.log("Translate block is opening/closing");
     }
     // handle click on notesBtn
@@ -41,6 +42,18 @@ class Navbar extends React.Component {
       const that = this;
       setTimeout(that.props.changeLinkState, 250);
     }
+  };
+
+  toggleTranslateBtnState = () => {
+    const that = this;
+    if (!this.props.isDealingWithTranslate) {
+      this.translateBtnRef.current.className = "nav-item active";
+      document.querySelector("#searchBar").classList.add("removeMidBlock");
+    } else {
+      this.translateBtnRef.current.className = "nav-item";
+      document.querySelector("#translator").classList.add("removeMidBlock");
+    }
+    setTimeout(that.props.changeTranslateState, 200);
   };
 
   render() {
