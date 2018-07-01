@@ -1,3 +1,6 @@
+#translator {
+    transition: .2s;
+}
 .container {
     position: relative;
     height: 200px;
