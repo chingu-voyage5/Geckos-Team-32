@@ -62,16 +62,12 @@
   cursor: pointer;
 }
 
-.header img {
-  filter: opacity(.3);
+.note img {
+  opacity: 0;
 }
 
-.header:hover img {
-  filter: opacity(.5);
-}
-
-.header button:hover img {
-  filter: opacity(1)
+.note:hover img {
+  opacity: 1;
 }
 
 .note textarea {
