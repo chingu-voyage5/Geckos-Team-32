@@ -32,8 +32,8 @@
 }
 
 #textbox1 {
-    width: 98%;
-    height: 98%;
+    width: 100%;
+    height: 100%;
     resize: none;
     outline: none;
     overflow-y: auto;
@@ -41,9 +41,9 @@
     font-size: 20px;
     z-index: 1;
     border: none;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: left;
     padding-left: 7px;
+    font-family: 'Roboto', sans-serif;
 }
 
 #textbox2 {
@@ -53,7 +53,6 @@
     position: relative;
     font-size: 20px;
     z-index: 1;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: left;
     padding-left: 7px;
     white-space:pre-wrap;
@@ -80,11 +79,13 @@
     width: 22%;
     height: 85%;
     float: left;
-    font-size: 18px;
+    font-size: 16px; 
     margin-left: 10px;
     margin-top: 3px;
     background-color: var(--blue);
     color: var(--white);
+    border-radius: 3px;
+    border: 1px solid var(--light-grey);
 }
 
 #btn-swap {

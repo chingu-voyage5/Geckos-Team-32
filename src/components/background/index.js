@@ -30,14 +30,16 @@ class Photos extends Component {
 
   componentDidMount() {
     unsplash.photos
-      .getRandomPhoto({ featured: true })
-      .then(toJson)
+      .getRandomPhoto({ query: "nature" })  //just for experimenting
+      .then(toJson) 
       .then(json => {
-        if (json.links) {
+        const imageToUse = json;
+        
+        if (json) { 
           $("body").css(
             "background-image",
-            "linear-gradient(to bottom, rgba(0,0,0, .5),rgba(0,0,0, .6)), url(" +
-              json.links.download +
+            "linear-gradient(to bottom, rgba(0,0,0, .2),rgba(0,0,0, .3)), url(" +
+              json.urls.regular +
               ")"
           );
 
@@ -46,6 +48,9 @@ class Photos extends Component {
             name: json.description,
             url: json.links.html
           });
+
+          // trigger a download event
+          unsplash.photos.downloadPhoto(imageToUse);
         } else {
           var imageArr = [image1, image2, image3, image4, image5];
           var randomIndex = Math.floor(Math.random() * 4);
@@ -55,6 +60,9 @@ class Photos extends Component {
           );
         }
         $("body").css("background-size", "cover");
+      })
+      .catch(error => {
+        console.log("There was an error with the unsplash api request: ", error);
       });
 
     $(".camera").hover(this.cameraHoverIn, this.cameraHoverOut);
