@@ -1,15 +1,15 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import Unsplash, { toJson } from "unsplash-js";
-import $ from "jquery";
-import FontAwesome from "react-fontawesome";
+import Unsplash, { toJson } from 'unsplash-js';
+import $ from 'jquery';
+import FontAwesome from 'react-fontawesome';
 
-import "./index.css";
-import image1 from "./images/image1.jpg";
-import image2 from "./images/image2.jpg";
-import image3 from "./images/image3.jpg";
-import image4 from "./images/image4.jpg";
-import image5 from "./images/image5.jpg";
+import './index.css';
+import image1 from './images/image1.jpg';
+import image2 from './images/image2.jpg';
+import image3 from './images/image3.jpg';
+import image4 from './images/image4.jpg';
+import image5 from './images/image5.jpg';
 
 const unsplash = new Unsplash({
   applicationId: process.env.REACT_APP_UNSPLASH_KEY
@@ -20,9 +20,9 @@ class Photos extends Component {
     super(props);
 
     this.state = {
-      author: "",
-      name: "",
-      url: ""
+      author: '',
+      name: '',
+      url: ''
     };
     this.cameraHoverIn = this.cameraHoverIn.bind(this);
     this.cameraHoverOut = this.cameraHoverOut.bind(this);
@@ -30,17 +30,17 @@ class Photos extends Component {
 
   componentDidMount() {
     unsplash.photos
-      .getRandomPhoto({ query: "nature" })  //just for experimenting
-      .then(toJson) 
+      .getRandomPhoto({ query: 'nature' }) //just for experimenting
+      .then(toJson)
       .then(json => {
         const imageToUse = json;
-        
-        if (json) { 
-          $("body").css(
-            "background-image",
-            "linear-gradient(to bottom, rgba(0,0,0, .2),rgba(0,0,0, .3)), url(" +
+
+        if (json) {
+          $('body').css(
+            'background-image',
+            'linear-gradient(to bottom, rgba(0,0,0, .2),rgba(0,0,0, .3)), url(' +
               json.urls.regular +
-              ")"
+              ')'
           );
 
           this.setState({
@@ -54,26 +54,30 @@ class Photos extends Component {
         } else {
           var imageArr = [image1, image2, image3, image4, image5];
           var randomIndex = Math.floor(Math.random() * 4);
-          $("body").css(
-            "background-image",
+          $('body').css(
+            'background-image',
             "url('" + imageArr[randomIndex] + "')"
           );
         }
-        $("body").css("background-size", "cover");
+        $('body').css('background-size', 'cover');
+        $('body').css('background-position', '50% 50%');
       })
       .catch(error => {
-        console.log("There was an error with the unsplash api request: ", error);
+        console.log(
+          'There was an error with the unsplash api request: ',
+          error
+        );
       });
 
-    $(".camera").hover(this.cameraHoverIn, this.cameraHoverOut);
+    $('.camera').hover(this.cameraHoverIn, this.cameraHoverOut);
   }
 
   cameraHoverIn() {
-    $(".credit").css("display", "inline");
+    $('.credit').css('display', 'inline');
   }
 
   cameraHoverOut() {
-    $(".credit").css("display", "none");
+    $('.credit').css('display', 'none');
   }
 
   render() {
