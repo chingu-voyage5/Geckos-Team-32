@@ -10,6 +10,11 @@
   transition: .2s;
 }
 
+#searchBar > * {
+  position: relative;
+  z-index: 50;
+}
+
 #searchBar ::placeholder {
   color: #cacaca;
 }

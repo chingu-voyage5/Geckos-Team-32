@@ -6,11 +6,13 @@ import Photos from "./components/background/index";
 import Links from "./components/quicklinks";
 import Navbar from "./components/navbar";
 import Translator from "./components/translator";
+import Notes from "./components/stickynotes";
 
 class App extends Component {
   state = {
     isDealingWithLinks: false,
-    isDealingWithTranslate: false
+    isDealingWithTranslate: false,
+    isDealingWithNotes: true
   };
 
   // Change state of isDealingWithLinks - handle show/hide state of link container
@@ -23,17 +25,21 @@ class App extends Component {
       isDealingWithTranslate: !this.state.isDealingWithTranslate
     });
 
+  // Change state of isDealingWithLinks - handle show/hide state of link container
+  changeNotesState = () =>
+    this.setState({ isDealingWithNotes: !this.state.isDealingWithNotes });
+
   render() {
     return (
       <div className="App">
         {/* conditional rendering: render if state.isDealingWithLinks = true  */}
-        {this.state.isDealingWithLinks ? (
-          <Links changeLinkState={this.changeLinkState} />
-        ) : null}
+        {this.state.isDealingWithLinks ? <Links /> : null}
         <Photos />
         <Clock />
+        {this.state.isDealingWithNotes ? <Notes /> : null}
         {this.state.isDealingWithTranslate ? <Translator /> : <SearchBar />}
         <Navbar
+          changeNotesState={this.changeNotesState}
           changeLinkState={this.changeLinkState}
           isDealingWithLinks={this.state.isDealingWithLinks}
           changeTranslateState={this.changeTranslateState}

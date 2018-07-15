@@ -37,7 +37,6 @@ class Photos extends Component {
 
         if (json) {
           $('body').css('background-image', 'url(' + json.urls.regular + ')');
-
           this.setState({
             author: json.user.name,
             name: json.description,
@@ -55,6 +54,7 @@ class Photos extends Component {
           );
         }
         $('body').css('background-size', 'cover');
+        $('body').css('background-position', '50% 50%');
       })
       .catch(error => {
         console.log(
