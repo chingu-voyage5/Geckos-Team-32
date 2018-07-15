@@ -2,6 +2,7 @@
     user-select: none;
     color: white;
     align-self: end;
+    background: radial-gradient(15% 50%, rgba(27, 27, 27, 0.5), transparent);
 }
 
 #App-clock > * {

@@ -36,13 +36,7 @@ class Photos extends Component {
         const imageToUse = json;
 
         if (json) {
-          $('body').css(
-            'background-image',
-            'linear-gradient(to bottom, rgba(0,0,0, .2),rgba(0,0,0, .3)), url(' +
-              json.urls.regular +
-              ')'
-          );
-
+          $('body').css('background-image', 'url(' + json.urls.regular + ')');
           this.setState({
             author: json.user.name,
             name: json.description,
