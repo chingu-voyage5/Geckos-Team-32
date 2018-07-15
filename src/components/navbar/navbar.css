@@ -17,6 +17,8 @@ nav {
   background: transparent;
   cursor: pointer;
   outline: none;
+  position: relative;
+  z-index: 50;
 }
 
 .nav-item-title {

@@ -25,7 +25,7 @@ class Navbar extends React.Component {
     }
     // handle click on notesBtn
     if (this.notesBtnRef.current.contains(event.target)) {
-      console.log("Notes are opening/closing");
+      this.props.changeNotesState();
     }
   };
 
