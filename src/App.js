@@ -40,6 +40,7 @@ class App extends Component {
         {this.state.isDealingWithTranslate ? <Translator /> : <SearchBar />}
         <Navbar
           changeNotesState={this.changeNotesState}
+          isDealingWithNotes={this.state.isDealingWithNotes}
           changeLinkState={this.changeLinkState}
           isDealingWithLinks={this.state.isDealingWithLinks}
           changeTranslateState={this.changeTranslateState}
