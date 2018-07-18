@@ -29,22 +29,6 @@
   }
 }
 
-.note.deleting {
-  animation: deleteNote .25s forwards;
-}
-
-@keyframes deleteNote {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1.2);
-    opacity: 0;
-  }
-}
-
 .note .header {
   background: #FFC400;
   height: 1.75rem;

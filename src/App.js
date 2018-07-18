@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import "./App.css";
-import Clock from "./components/clock";
-import SearchBar from "./components/searchbar";
-import Photos from "./components/background/index";
-import Links from "./components/quicklinks";
-import Navbar from "./components/navbar";
-import Translator from "./components/translator";
-import Notes from "./components/stickynotes";
+import React, { Component } from 'react';
+import './App.css';
+import Clock from './components/clock';
+import SearchBar from './components/searchbar';
+import Photos from './components/background/index';
+import Links from './components/quicklinks';
+import Navbar from './components/navbar';
+import Translator from './components/translator';
+import Notes from './components/stickynotes';
 
 class App extends Component {
   state = {
     isDealingWithLinks: false,
     isDealingWithTranslate: false,
-    isDealingWithNotes: true
+    isDealingWithNotes: false
   };
 
   // Change state of isDealingWithLinks - handle show/hide state of link container

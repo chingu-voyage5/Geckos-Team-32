@@ -1,16 +1,16 @@
-import React from "react";
-import Note from "./Note";
+import React from 'react';
+import Note from './Note';
 
 class Notes extends React.Component {
   state = {
     notes: {
-      defaultNote: { content: "" }
+      defaultNote: { content: '' }
     }
   };
 
   // get saved notes from localStorage if they are available
   componentDidMount() {
-    const localStorageRef = localStorage.getItem("savedNotes");
+    const localStorageRef = localStorage.getItem('savedNotes');
     if (localStorageRef) {
       this.setState({ notes: JSON.parse(localStorageRef) });
     }
@@ -21,12 +21,12 @@ class Notes extends React.Component {
       this.addNote();
     }
     // update localStorage when Notes component updates
-    localStorage.setItem("savedNotes", JSON.stringify(this.state.notes));
+    localStorage.setItem('savedNotes', JSON.stringify(this.state.notes));
   }
 
   addNote = () => {
     const notes = { ...this.state.notes };
-    notes[`note${Date.now()}`] = { content: "" };
+    notes[`note${Date.now()}`] = { content: '' };
     this.setState({
       notes
     });

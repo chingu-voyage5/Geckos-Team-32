@@ -1,16 +1,16 @@
-import React from "react";
-import "./notes.css";
-import Rnd from "react-rnd";
-import trashIcon from "./trash.png";
-import addIcon from "./plus.png";
+import React from 'react';
+import './notes.css';
+import Rnd from 'react-rnd';
+import trashIcon from './trash.png';
+import addIcon from './plus.png';
 
 class Note extends React.Component {
   state = {
-    width: "200px",
-    height: "150px",
-    x: "20",
-    y: "20",
-    content: ""
+    width: '200px',
+    height: '150px',
+    x: '20',
+    y: '20',
+    content: ''
   };
 
   componentDidMount() {
@@ -28,8 +28,7 @@ class Note extends React.Component {
   }
 
   removeNote = () => {
-    this.refs.note.classList.add("deleting");
-    setTimeout(() => this.props.deleteNote(this.props.noteKey), 250);
+    this.props.deleteNote(this.props.noteKey);
   };
 
   updateNote = () => {
