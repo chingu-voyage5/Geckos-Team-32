@@ -46,6 +46,10 @@
   cursor: pointer;
 }
 
+.notes .header button:hover {
+  background: #fde03a;
+}
+
 .note img {
   opacity: 0;
 }
