@@ -1,0 +1,33 @@
+.credit-block {
+    position: absolute;
+    z-index: 100;
+    bottom: 10px;
+    right: 10px;
+  }
+
+.credit {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 2px;
+    text-align: left;
+    padding: 0 10px;
+    max-width: 400px;
+    position: fixed;
+    bottom: 2em;
+    right: 5px;
+    font-weight: 300;
+    display: none;
+}
+.camera {
+    color: white;
+    font-size: 10px;
+}
+
+.camera:hover{
+    color:#4889f1;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
