@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './translator.css';
+import runtimeEnv from '@mars/heroku-js-runtime-env';
 
-const API_KEY =
-  'trnsl.1.1.20180629T083133Z.ca9ba522c8d4831c.bdc76555e55651d985e656c20080215a40987616';
+const env = runtimeEnv();
+
+const API_KEY = env.REACT_APP_YANDEX_TRANSLATE_KEY;
 const API_URL = 'https://translate.yandex.net/api/v1.5/tr.json/';
 
 //construct the full url address for each api method here

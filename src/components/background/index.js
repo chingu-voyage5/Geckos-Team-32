@@ -11,9 +11,12 @@ import image3 from './images/image3.jpg';
 import image4 from './images/image4.jpg';
 import image5 from './images/image5.jpg';
 
+import runtimeEnv from '@mars/heroku-js-runtime-env';
+
+const env = runtimeEnv();
+
 const unsplash = new Unsplash({
-  applicationId:
-    '14b7c9c7e50d970b9bbba65427c2bd3c53e3ce221c413b53c923b4c3cd098bd9'
+  applicationId: env.REACT_APP_UNSPLASH_KEY
 });
 
 class Photos extends Component {

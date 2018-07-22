@@ -23,7 +23,6 @@ class Note extends React.Component {
         y: thisNote.y,
         content: thisNote.content
       });
-      console.log(this.props.defaultData[this.props.noteKey]);
     }
   }
 
