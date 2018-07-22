@@ -1,14 +1,15 @@
-import React, { Component } from "react";
-import "./translator.css";
+import React, { Component } from 'react';
+import './translator.css';
 
-const API_KEY = process.env.REACT_APP_YANDEX_TRANSLATE_KEY;
-const API_URL = "https://translate.yandex.net/api/v1.5/tr.json/";
+const API_KEY =
+  'trnsl.1.1.20180629T083133Z.ca9ba522c8d4831c.bdc76555e55651d985e656c20080215a40987616';
+const API_URL = 'https://translate.yandex.net/api/v1.5/tr.json/';
 
 //construct the full url address for each api method here
 const api_method = {
-  translate: API_URL + "translate?key=" + API_KEY,
-  detect: API_URL + "detect?key=" + API_KEY,
-  languages: API_URL + "getLangs?key=" + API_KEY
+  translate: API_URL + 'translate?key=' + API_KEY,
+  detect: API_URL + 'detect?key=' + API_KEY,
+  languages: API_URL + 'getLangs?key=' + API_KEY
 };
 
 class Translator extends Component {
@@ -16,10 +17,10 @@ class Translator extends Component {
   swapLanguages = this.swapLanguages.bind(this);
 
   state = {
-    textToTranslate: "",
-    translated: "",
-    sourceLang: "", //autodetect language
-    targetLang: "en",
+    textToTranslate: '',
+    translated: '',
+    sourceLang: '', //autodetect language
+    targetLang: 'en',
     languages: {}
   };
 
@@ -47,7 +48,7 @@ class Translator extends Component {
 
   detectLang() {
     let textToTranslate = this.state.textToTranslate;
-    let apiCall = api_method["detect"] + "&text=" + textToTranslate;
+    let apiCall = api_method['detect'] + '&text=' + textToTranslate;
     fetch(apiCall)
       .then(res => res.json())
       .then(data => {
@@ -55,7 +56,7 @@ class Translator extends Component {
       })
       .then(() => this.translate())
       .catch(error => {
-        console.log("There was an error with the translation request: ", error);
+        console.log('There was an error with the translation request: ', error);
       });
   }
 
@@ -68,7 +69,7 @@ class Translator extends Component {
     //if input is empty reset translated and exit the function
     if (textToTranslate.trim().length === 0) {
       //if textToTranslate is empty, set translated to empty
-      this.setState({ textToTranslate: "", translated: "" });
+      this.setState({ textToTranslate: '', translated: '' });
       return;
     }
 
@@ -78,12 +79,12 @@ class Translator extends Component {
     } else {
       textToTranslate = encodeURI(textToTranslate);
       let apiCall =
-        api_method["translate"] +
-        "&text=" +
+        api_method['translate'] +
+        '&text=' +
         textToTranslate +
-        "&lang=" +
+        '&lang=' +
         sourceLang +
-        "-" +
+        '-' +
         targetLang;
 
       fetch(apiCall)
@@ -93,7 +94,7 @@ class Translator extends Component {
         })
         .catch(error => {
           console.log(
-            "There was an error with the translation request: ",
+            'There was an error with the translation request: ',
             error
           );
         });
@@ -102,11 +103,11 @@ class Translator extends Component {
 
   componentDidMount() {
     // use api call to fetch list of languages
-    fetch(api_method["languages"] + "&ui=en")
+    fetch(api_method['languages'] + '&ui=en')
       .then(res => res.json())
       .then(data => this.setState({ languages: data.langs }))
       .catch(error => {
-        console.log("There was an error with the translation request: ", error);
+        console.log('There was an error with the translation request: ', error);
       });
   }
 
