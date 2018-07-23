@@ -32,10 +32,14 @@ class Photos extends Component {
 
     componentDidMount(){
         unsplash.photos.getRandomPhoto({ featured: true })
-        .then(toJson)
+        .then(res => {
+            if(res.status === 403)
+                return null;
+            else
+                return toJson(res);          
+        })
         .then(json => {
-
-            if(json.links){
+            if(json && json.links){
                 $('body').css('background-image', 'url(' + json.links.download + ')');
                 
                  this.setState({
@@ -44,14 +48,18 @@ class Photos extends Component {
                      url: json.links.html});
             }
             else {
-                var imageArr = [ image1, image2, image3, image4, image5 ];
-                var randomIndex = Math.floor(Math.random() * 4); 
-                $('body').css('background-image', 'url(\'' + imageArr[randomIndex] +'\')' );
+                this.setDefaultBackground();
             }
             $('body').css('background-size', 'cover');
         });   
 
         $('.camera').hover(this.cameraHoverIn, this.cameraHoverOut);
+    };
+
+    setDefaultBackground(){
+        var imageArr = [ image1, image2, image3, image4, image5 ];
+        var randomIndex = Math.floor(Math.random() * 4); 
+        $('body').css('background-image', 'url(\'' + imageArr[randomIndex] +'\')' );
     };
 
     cameraHoverIn(){
