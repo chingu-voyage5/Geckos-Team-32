@@ -7,6 +7,7 @@
   height: 75vh;
   background: white;
   position: absolute;
+  z-index: 100;
   left: 0;
   top: -75vh;
   overflow: auto;
@@ -39,7 +40,7 @@
   }
 }
 
-.container {
+.container-links-block {
   max-width: 1200px;
   height: 100%;
   margin: 0 auto;

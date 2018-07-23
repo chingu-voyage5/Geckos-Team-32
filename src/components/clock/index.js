@@ -47,13 +47,16 @@ class Clock extends Component {
         //prepare 12-hour format
         let displayTime12 = hour.toString() + ':' + minutes.toString();
 
+        //prepare date format - longer style
+        let dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        
         this.setState(() => {
             return {
                 //conditional statement
                 //when this.state.is24hourFormat is true display time in 24h, else in 12h format
                 time: this.state.is24hourFormat ? displayTime24 : displayTime12, 
                 timeOfDay: this.state.is24hourFormat ? '' : timeOfDay, 
-                date: date.toDateString()
+                date: date.toLocaleDateString('en-US', dateOptions)
             }
         });
     }

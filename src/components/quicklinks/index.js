@@ -69,7 +69,7 @@ class Links extends React.Component {
   render() {
     return (
       <div className="useful-links">
-        <div className="container">
+        <div className="container-links-block">
           <h2 className="useful-links__heading">Useful links</h2>
           <div className="links-container">
             {Object.keys(this.state.links).map(key => (

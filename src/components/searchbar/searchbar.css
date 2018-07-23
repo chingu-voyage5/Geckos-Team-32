@@ -7,6 +7,12 @@
 #searchBar {
   margin: 0 auto;
   width: 51%;
+  transition: .2s;
+}
+
+#searchBar > * {
+  position: relative;
+  z-index: 50;
 }
 
 #searchBar ::placeholder {

@@ -1,0 +1,140 @@
+#translator {
+    transition: .2s;
+}
+.container {
+    position: relative;
+    height: 200px;
+    max-height: 80%;
+    min-height: 160px;
+    width: 100%;
+    max-width: 960px;
+    margin: 20px auto;
+    z-index: 2;
+    padding: 10px 20px;
+}
+
+.item {
+    top: 0;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.item-left {
+    left: 0;
+    padding-right: 1px;
+}
+
+.item-right {
+    right: 0;
+    padding-left: 1px;
+}
+
+#textbox1,
+#textbox2 {
+    height: 100%;
+    text-align: left;
+    overflow-y: auto;
+    z-index: 1;
+    position: relative;
+    font-weight: 300;
+    font-size: 20px;
+    padding: 10px;
+}
+
+#textbox1 {
+    width: 100%;
+    resize: none;
+    outline: none;
+    border: none;
+    font-family: inherit;
+    border-bottom-left-radius: 3px;
+}
+
+#textbox2 {
+    background-color: white;
+    white-space:pre-wrap;
+    border-bottom-right-radius: 3px;
+}
+
+.lang-panel {
+    background-color: white;
+    height: 35px;
+    z-index: 2;
+    position: relative;
+    padding-left: 10px;
+}
+
+.item-left .lang-panel {
+    border-top-left-radius: 3px;
+}
+
+.item-right .lang-panel {
+    border-top-right-radius: 3px;
+}
+
+.lang-list {
+    width: 50%;
+    height: 100%;
+    float: left;
+    font-size: 18px;
+    border: none;
+    border-bottom: 1px solid black;
+    appearance: none;
+    background: url('./down.png') no-repeat right 60%;
+    text-transform: lowercase;
+}
+
+.lang-list > * {
+    font-size: 16px;
+}
+
+#btn-translate {
+    width: 20%;
+    height: 90%;
+    float: left;
+    font-size: 15px;
+    margin-left: 15px;
+    margin-top: 3px;
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 3px;
+    border: 1px solid var(--light-grey);
+    backface-visibility: hidden;
+    transition: .25s;
+}
+
+#btn-swap {
+    width: 10%;
+    height: 85%;
+    font-size: 18px;
+    margin-right: 10px;
+    margin-top: 3px;
+    background: transparent url('./swap.png') no-repeat center center;
+    float: right;
+    border: none;
+    outline: none;
+    backface-visibility: hidden;
+    transition: all .25s;
+}
+
+#btn-swap,
+#btn-translate,
+.lang-list {
+    cursor: pointer;
+    outline: none;
+}
+
+#btn-swap:active {
+    transform: scaleX(1.25);
+} 
+
+#btn-translate:active {
+    transform: scale(.95);
+}
+
+.yandex {
+    float: right;
+    margin-right: 10px;
+}

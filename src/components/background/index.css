@@ -1,20 +1,26 @@
+.credit-block {
+    position: absolute;
+    z-index: 100;
+    bottom: 10px;
+    right: 10px;
+  }
+
 .credit {
     color: white;
-    border: 2px solid black;
     background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 2px;
     text-align: left;
-    padding:10px;
+    padding: 0 10px;
+    max-width: 400px;
     position: fixed;
     bottom: 2em;
-    right: 0;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    right: 5px;
+    font-weight: 300;
     display: none;
 }
 .camera {
     color: white;
-    position:fixed;
-    bottom:0;
-    right:0;
+    font-size: 10px;
 }
 
 .camera:hover{
