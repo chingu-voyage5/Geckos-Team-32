@@ -16,7 +16,7 @@ This extension4chrome is a collaborative effort of a remote team of aspiring dev
 * Display everytime a different photo background from [Unsplash](https://unsplash.com/)
 * Read and edit notes the Notes feature
 * Save, add and use your favorite links
-* Use translation tool [Yandex Translate](https://translate.yandex.com/) similar to Google translate
+* Use translation tool [Yandex Translate](https://translate.yandex.com/) similar to Google translator
 
 
 ![Notes](http://res.cloudinary.com/cloudlenpel/image/upload/c_scale,w_791/v1532555181/extention4chrome/notes.png "Notes")
