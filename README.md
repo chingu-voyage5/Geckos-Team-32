@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-# Geckos-Team-32
-Chrome extension - search, translate, save notes and useful links
 =======
-=======
->>>>>>> a83f3bb913c7cbf6fa49c0d984afac589896d392
 # Extension4chrome (Geckos-Team-32)
 
 Voyage-5 | chingu.io
@@ -22,11 +17,7 @@ This extension4chrome is a collaborative effort of a remote team of aspiring dev
 * Display everytime a different photo background from [Unsplash](https://unsplash.com/)
 * Read and edit notes the Notes feature
 * Save, add and use your favorite links
-<<<<<<< HEAD
-* Use translation tool [Yandex Translate](https://translate.yandex.com/) similar to Google translate
-=======
 * Use translation tool [Yandex Translate](https://translate.yandex.com/) similar to Google translator
->>>>>>> a83f3bb913c7cbf6fa49c0d984afac589896d392
 
 
 ![Notes](http://res.cloudinary.com/cloudlenpel/image/upload/c_scale,w_791/v1532555181/extention4chrome/notes.png "Notes")
@@ -63,8 +54,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * [LenPel](https://github.com/lenpel)
 
 ## Acknowledgments
-<<<<<<< HEAD
 * Thanks to [Project Chingu](https://chingu.io/) cohorts
-=======
-* Thanks to [Project Chingu](https://chingu.io/) cohorts
->>>>>>> a83f3bb913c7cbf6fa49c0d984afac589896d392
