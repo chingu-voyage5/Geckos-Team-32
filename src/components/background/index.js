@@ -22,20 +22,23 @@ const unsplash = new Unsplash({
 class Photos extends Component {
   constructor(props) {
     super(props);
+         this.state = {
+            author: '',
+            name: '',
+            url: ''
+         };
+        this.cameraHoverIn = this.cameraHoverIn.bind(this);
+        this.cameraHoverOut = this.cameraHoverOut.bind(this);
+     };
 
-    this.state = {
-      author: '',
-      name: '',
-      url: ''
-    };
-    this.cameraHoverIn = this.cameraHoverIn.bind(this);
-    this.cameraHoverOut = this.cameraHoverOut.bind(this);
-  }
-
-  componentDidMount() {
-    unsplash.photos
-      .getRandomPhoto({ query: 'nature' }) //just for experimenting
-      .then(toJson)
+    componentDidMount(){
+        unsplash.photos.getRandomPhoto({ query: 'nature' })
+        .then(res => {
+            if(res.status === 403)
+                return null;
+            else
+                return toJson(res);          
+        })
       .then(json => {
         const imageToUse = json;
 
